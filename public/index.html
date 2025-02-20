@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Déclaration d'Impôts 2024</title>
+        <link rel="icon" href="favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    </head>
+    <body>
+        <div class="form-container">
+            <div id="title-section">
+                <h1>Déclaration d'impôts 2024</h1>
+                <p>Complétez ces étapes en quelques minutes à peine. Nos professionnels s’occuperont de la suite.</p>
+            </div>
+
+            <form id="taxForm" name="taxForm" method="POST" action="/confirmation.html" netlify netlify-honeypot="bot-field" enctype="multipart/form-data"  style="margin-top: 50px;">
+                <input type="hidden" name="form-name" value="taxForm">
+                
+                <p style="display: none;">
+                    <label>Ne remplissez pas ce champ : <input name="bot-field"></label>
+                </p>
+
+                <!-- ✅ Étape 1: Informations Personnelles -->
+                <div class="form-section active" data-step="1">
+                    <h2>Vos informations personnelles</h2>
+                    <div class="form-group" style="margin-top: 25px;">
+                        <label for="prenom">Nom</label>
+                        <div class="input-group">
+                            <input type="text" id="prenom" name="prenom" placeholder="Prénom" required>
+                            <input type="text" id="deuxieme-prenom" name="deuxieme_prenom" placeholder="Deuxième prénom">
+                            <input type="text" id="nom-famille" name="nom_famille" placeholder="Nom de famille" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="sexe">Sexe</label>
+                        <select id="sexe" name="sexe" required>
+                            <option value="">Veuillez sélectionner</option>
+                            <option value="Homme">Homme</option>
+                            <option value="Femme">Femme</option>
+                            <option value="Autre">Autre</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="etat-civil">État Civil</label>
+                        <select id="etat-civil" name="etat_civil" required>
+                            <option value="">Veuillez sélectionner</option>
+                            <option value="Célibataire">Célibataire</option>
+                            <option value="Conjoint(e) de fait">Conjoint(e) de fait</option>
+                            <option value="Divorcé(e)">Divorcé(e)</option>
+                            <option value="Marié(e)">Marié(e)</option>
+                            <option value="Séparé(e)">Séparé(e)</option>
+                            <option value="Veuf(ve)">Veuf(ve)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="dob">Date de naissance</label>
+                        <input type="date" id="dob" name="dob" required>
+                    </div>
+                    <h3 style="margin-top: 25px;"> Adresse</h3>
+                    <div class="form-group" style="margin-top: 25px;">
+                        <label for="adresse">Numéro et rue</label>
+                        <input type="text" id="adresse" name="adresse" required placeholder="Ex: 123 Rue Principale">
+                    </div>
+                    <div class="input-group">
+                        <div class="form-group">
+                            <label for="ville">Ville</label>
+                            <input type="text" id="ville" name="ville" required placeholder="Ex: Montréal">
+                        </div>
+                        <div class="form-group">
+                            <label for="province">Province</label>
+                            <select id="province" name="province" required>
+                                <option value="">Veuillez sélectionner votre province</option>
+                                <option value="AB">Alberta</option>
+                                <option value="BC">Colombie-Britannique</option>
+                                <option value="MB">Manitoba</option>
+                                <option value="NB">Nouveau-Brunswick</option>
+                                <option value="NL">Terre-Neuve-et-Labrador</option>
+                                <option value="NS">Nouvelle-Écosse</option>
+                                <option value="NT">Territoires du Nord-Ouest</option>
+                                <option value="NU">Nunavut</option>
+                                <option value="ON">Ontario</option>
+                                <option value="PE">Île-du-Prince-Édouard</option>
+                                <option value="QC">Québec</option>
+                                <option value="SK">Saskatchewan</option>
+                                <option value="YT">Yukon</option>
+                            </select>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="input-group">
+                        <div class="form-group">
+                            <label for="codepostal">Code Postal</label>
+                            <input type="text" id="codepostal" name="codepostal" required pattern="[A-Za-z]\d[A-Za-z] \d[A-Za-z]\d" placeholder="Ex: A1A 1A1">
+                        </div>
+                        <div class="form-group">
+                            <label for="pays">Pays</label>
+                            <select id="pays" name="pays" required>
+                                <option value="Canada">Canada</option>
+                                <option value="Autre">Autre</option>
+                            </select>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="telephone">Numéro de téléphone</label>
+                        <input type="tel" id="telephone" name="telephone" placeholder="(000) 000-0000" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="ex: nom.prenom@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="num-as">Numéro d'assurance sociale</label>
+                        <input type="text" id="num-as" name="num_as" placeholder="ex: 123-456-789" required>
+                    </div>
+                </div>
+
+                <!-- Étape 2: Citoyenneté -->
+                <div class="form-section" data-step="2">
+                    <h2>Citoyenneté</h2>
+                    <br>
+                    <div class="form-group">
+                        <label for="statut">Quel est votre statut de résidence au Canada ? </label>
+                        <select id="statut" name="statut_residence" required>
+                            <option value="">Sélectionnez</option>
+                            <option value="Citoyen canadien">Citoyen canadien</option>
+                            <option value="Résident permanent">Résident permanent</option>
+                            <option value="Résident temporaire">Résident temporaire</option>
+                            <option value="Étudiant étranger">Étudiant Étranger</option>
+                        </select>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="premiere_declaration">Est-ce votre première déclaration d'impôt ? </label>
+                        <select id="premiere_declaration" name="premiere_declaration" required>
+                            <option value="">Sélectionnez</option>
+                            <option value="Oui">Oui</option>
+                            <option value="Non">Non</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Étape 3: Situation Familiale -->
+                <div class="form-section" data-step="3">
+                    <h2>Situation Familiale</h2>
+                    <br>
+                    <div class="form-group">
+                        <label for="seul">Avez-vous vécu seul(e) durant toute l'année 2024 ? </label>
+                        <select id="seul" name="vecu_seul_2024" required>
+                            <option value="">Veuillez sélectionner</option>
+                            <option value="Oui">Oui</option>
+                            <option value="Non">Non</option>
+                        </select>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label>Combien d'enfants à charge avez-vous ? </label>
+                        <div class="radio-group">
+                            <label><input type="radio" name="enfants" value="0" required> 0</label>
+                            <label><input type="radio" name="enfants" value="1"> 1</label>
+                            <label><input type="radio" name="enfants" value="2"> 2</label>
+                            <label><input type="radio" name="enfants" value="3"> 3</label>
+                            <label><input type="radio" name="enfants" value="4"> 4</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Étape 4: Informations sur l'époux(se) ou conjoint(e) de fait -->
+                <div id="infos-conjoints" class="form-section" data-step="4">
+                    <h2>Informations sur l'époux(se) ou conjoint(e) de fait</h2>
+                    <div id="conjoints-container" class="form-group">
+                        <label>Nom </label>
+                        <div class="input-group">
+                            <input type="text" id="prenom-conjoint" name="prenom_conjoint" placeholder="Prénom" required>
+                            <input type="text" id="deuxieme-prenom-conjoint" name="deuxieme_prenom_conjoint" placeholder="Deuxième prénom">
+                            <input type="text" id="nom-famille-conjoint" name="nom_famille_conjoint" placeholder="Nom de famille" required>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Étape 5: Informations sur le(s) enfants(s) à charge -->
+                <div id="infos-enfants" class="form-section" data-step="5">
+                    <h2>Informations sur le(s) enfants(s) à charge</h2>
+                    <div id="enfants-container" class="form-group">
+                        <label>Nom </label>
+                        <div class="input-group">
+                            <input type="text" id="prenom" name="prenom" placeholder="Prénom" required>
+                            <input type="text" id="deuxieme-prenom" name="deuxieme-prenom" placeholder="Deuxième prénom">
+                            <input type="text" id="nom-famille" name="nom-famille" placeholder="Nom de famille" required>
+                        </div>
+                    </div> 
+                </div>
+
+                <!-- Étape 6 : À Propos de vous -->
+                <div id="a-propose-de-vous" class="form-section" data-step="6">
+                    <h2>À Propos de vous</h2>
+                    <div class="form-group">
+                        <label for="Proprietaire">En date du 31 décembre 2024, étiez-vous propriétaire ou locataire de votre logement ? </label>
+                        <select id="Proprietaire" name="statut_logement" required>
+                            <option value="">Veuillez sélectionner</option>
+                            <option value="Locataire">Locataire</option>
+                            <option value="Propriétaire">Propriétaire</option>
+                        </select> 
+                    </div>
+                    <div class="form-group">
+                        <label for="Revenus">Quelles étaient vos sources de revenus durant l'année 2024? </label>
+                        <select id="Revenus" name="sources_revenus" required>
+                            <option value="">Veuillez sélectionner</option>
+                            <option value="Aucun revenu">Aucun revenu</option>
+                            <option value="Emploi">Revenu d’emploi</option>
+                            <option value="Immeuble">Immeuble à revenus</option>
+                            <option value="Retraite">Revenu de retraite</option>
+                            <option value="Placement">Revenu de placement (autre que CELI ou REER)</option>
+                            <option value="Sociale">Aide sociale</option>
+                            <option value="CNESST">CNESST</option>
+                        </select> 
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="Travailleur">Avez-vous eu un revenu comme travailleur autonome en 2024 ? </label>
+                        <select id="Travailleur" name="travailleur_autonome" required>
+                            <option value="">Veuillez sélectionner</option>
+                            <option value="Oui">Oui</option>
+                            <option value="Non">Non</option>
+                        </select> 
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="Habitation">Avez-vous acheté une première habitation en 2024 ? </label>
+                        <select id="Habitation" name="achat_premiere_habitation" required>
+                            <option value="">Veuillez sélectionner</option>
+                            <option value="Oui">Oui</option>
+                            <option value="Non">Non</option>
+                        </select> 
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="frais-garde">Avez-vous encouru des frais de garde d’enfant ? </label>
+                        <select id="frais-garde" name="frais_garde_enfant" required>
+                            <option value="">Veuillez sélectionner</option>
+                            <option value="Oui">Oui</option>
+                            <option value="Non">Non</option>
+                        </select>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="remboursements">Avez-vous reçu des remboursements anticipés ? </label>
+                        <select id="remboursements" name="remboursements_anticipes" required>
+                            <option value="">Veuillez sélectionner</option>
+                            <option value="Oui">Oui</option>
+                            <option value="Non">Non</option>
+                        </select>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="activites">Avez-vous encouru des frais pour un programme d’activités physiques, artistiques, culturelles ou récréatives ? </label>
+                        <select id="activites" name="frais_activites" required>
+                            <option value="">Veuillez sélectionner</option>
+                            <option value="Oui">Oui</option>
+                            <option value="Non">Non</option>
+                        </select>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="pension">Avez-vous payé une pension alimentaire concernant vos enfants ? </label>
+                        <select id="pension" name="pension_alimentaire" required>
+                            <option value="">Veuillez sélectionner</option>
+                            <option value="Oui">Oui</option>
+                            <option value="Non">Non</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Étape 7 : Renseignements Généraux Travailleurs Autonomes -->
+                <div id="travailleur-autonome" class="form-section" data-step="7">
+                    <h2>Renseignements Généraux Travailleurs Autonomes</h2>
+
+                    <div class="form-group">
+                        <label for="nom-entreprise">Nom de l'entreprise </label>
+                        <input type="text" id="nom-entreprise" name="nom_entreprise" required placeholder="Ex: Mon Entreprise Inc.">
+                    </div>
+
+                    <h3><i class="fas fa-home"></i> Adresse de l'entreprise</h3>
+                    <div class="form-group">
+                        <label for="adresse-entreprise">Numéro et rue</label>
+                        <input type="text" id="adresse-entreprise" name="adresse_entreprise" placeholder="Ex: 123 Rue Principale">
+                    </div>
+
+                    <div class="input-group">
+                        <div class="form-group">
+                            <label for="ville-entreprise">Ville</label>
+                            <input type="text" id="ville-entreprise" name="ville_entreprise" placeholder="Ex: Montréal">
+                        </div>
+                        <div class="form-group">
+                            <label for="province-entreprise">Province</label>
+                            <select id="province-entreprise" name="province_entreprise">
+                                <option value="">Veuillez sélectionner votre province</option>
+                                <option value="AB">Alberta</option>
+                                <option value="QC">Québec</option>
+                                <option value="ON">Ontario</option>
+                                <option value="BC">Colombie-Britannique</option>
+                                <option value="Autre">Autre</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <div class="form-group">
+                            <label for="codepostal-entreprise">Code Postal</label>
+                            <input type="text" id="codepostal-entreprise" name="codepostal_entreprise" pattern="[A-Za-z]\d[A-Za-z] \d[A-Za-z]\d" placeholder="Ex: A1A 1A1">
+                        </div>
+                        <div class="form-group">
+                            <label for="pays-entreprise">Pays</label>
+                            <select id="pays-entreprise" name="pays_entreprise">
+                                <option value="Canada">Canada</option>
+                                <option value="Autre">Autre</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="produits-services">Produits ou services </label>
+                        <select id="produits-services" name="produits_services" required>
+                            <option value="">Veuillez sélectionner</option>
+                            <option>Livraison de repas</option>
+                            <option>Transport de personnes</option>
+                            <option>Rédaction et révision</option>
+                            <option>Conception graphique</option>
+                            <option>Développement web</option>
+                            <option>Photographie</option>
+                            <option>Consultation en marketing numérique</option>
+                            <option>Traduction</option>
+                            <option>Coaching professionnel</option>
+                            <option>Enseignement et tutorat</option>
+                            <option>Programmation et développement de logiciels</option>
+                            <option>Services de comptabilité</option>
+                            <option>Montage vidéo</option>
+                            <option>Gestion de médias sociaux</option>
+                            <option>Services de coiffure à domicile</option>
+                            <option>Réparation informatique</option>
+                            <option>Services de nettoyage résidentiel</option>
+                            <option>Paysagisme et entretien extérieur</option>
+                            <option>Artisanat et vente de produits faits main</option>
+                            <option>Services de garde d'animaux</option>
+                        </select>
+                        <small>Veuillez choisir le produit ou service que vous offrez</small>
+                    </div>
+
+                    <h3>Revenus</h3>
+                    <div class="form-group">
+                        <label for="num-taxes">Numéros de taxes (TPS/TVQ) </label>
+                        <input type="text" id="num-taxes" name="num_taxes" required placeholder="Ex: 123456789RT0001">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="revenu-entreprise">Revenu d'entreprise</label>
+                        <input type="text" id="revenu-entreprise" name="revenu_entreprise" required placeholder="Ex: 50,000 CAD">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tps">TPS perçues </label>
+                        <input type="text" id="tps" name="tps" required placeholder="Ex: 2,500 CAD">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tvq">TVQ perçues </label>
+                        <input type="text" id="tvq" name="tvq" required placeholder="Ex: 3,000 CAD">
+                    </div>
+
+                    <h3>Dépenses admissibles</h3>
+                    <div class="form-group">
+                        <label for="publicite">Publicité et promotion</label>
+                        <input type="text" id="publicite" name="publicite" placeholder="Ex: 1,000 CAD">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="frais-bureau">Frais de bureau</label>
+                        <input type="text" id="frais-bureau"  name="frais_bureau" placeholder="Ex: 500 CAD">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="frais-telecom">Frais de télécommunications</label>
+                        <input type="text" id="frais-telecom"  name="frais_telecom" placeholder="Ex: 100 CAD">
+                    </div>
+
+                    <h3>Frais de véhicule</h3>
+                    <div class="form-group">
+                        <label for="km-total">Total kilomètres parcourus</label>
+                        <input type="text" id="km-total"  name="km_total" placeholder="Ex: 10,000 km">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="vehicule">Type de véhicule</label>
+                        <select id="vehicule" name="vehicule">
+                            <option value="">Veuillez sélectionner</option>
+                            <option>Voiture</option>
+                            <option>Moto</option>
+                            <option>Vélo</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cout-vehicule">Coût du véhicule</label>
+                        <input type="text" id="cout-vehicule"  name="cout_vehicule" placeholder="Ex: 20,000 CAD">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="essence">Coût de l'essence</label>
+                        <input type="text" id="essence"  name="essence" placeholder="Ex: 2,500 CAD">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="entretien">Frais de réparation et d'entretien du véhicule</label>
+                        <input type="text" id="entretien"  name="entretien" placeholder="Ex: 1,000 CAD">
+                    </div>
+                </div>
+                
+                <!-- Étape 8: Tarification et informations bancaires -->
+                <div id="tarification" class="form-section" data-step="8">
+                    <h2>Tarification et informations bancaires</h2>
+
+                    <!-- Section Tarification -->
+                    <div class="tarification">
+                        <div id="tarif-personne-seule" class="tarif">
+                            <h3>Personne seule</h3>
+                            <p>80 CAD</p>
+                        </div>
+                        <div id="tarif-couple" class="tarif">
+                            <h3>Couple</h3>
+                            <p>110 CAD</p>
+                        </div>
+                        <div id="tarif-travailleur-autonome" class="tarif">
+                            <h3>Travailleur autonome</h3>
+                            <p>150 CAD</p>
+                        </div>
+                    </div>
+
+                    <!-- Champ Numéro de compte bancaire -->
+                    <div class="form-group">
+                        <label for="compte-bancaire">Numéro de compte bancaire </label>
+                        <input type="text" id="compte-bancaire"  name="compte_bancaire" placeholder="Veuillez renseigner votre numéro de compte bancaire" required>
+                    </div>
+
+                    <!-- Champ Téléversement des documents -->
+                    <div class="form-group">
+                        <label for="documents">Documents à fournir </label>
+                        <div class="file-upload">
+                            <input type="file" id="documents" name="documents[]" multiple required>
+                            <label for="documents" class="upload-label">
+                                <span>📂 Parcourir les fichiers</span>
+                                <p>Glissez-déposez des fichiers ici</p>
+                            </label>
+                        </div>
+                        <ul id="file-list" class="file-list"></ul>
+                    </div>
+                </div>
+                
+                <!-- Navigation -->
+                <div class="btn-container">
+                    <button type="button" class="btn-secondary" onclick="previousSection()">Retour</button>
+                    <button type="button" class="btn-primary" id="next-button" onclick="nextSection()">Suivant</button>
+                    <button type="submit" id="submit-button" class="btn-primary" style="display: none;" onclick="submitForm(event)">Soumettre</button>
+                </div>
+            </form>
+        </div>
+        
+        <script src="script.js"></script>
+    </body>
+</html>
+ 

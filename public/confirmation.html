@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Confirmation</title>
+        <link rel="icon" href="favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="styles.css"> 
+    </head>
+    <body>
+        <div class="confirmation-container">
+            <h2>✅ Votre formulaire a été soumis avec succès !</h2>
+            <p>Merci d'avoir rempli le formulaire. Nous traiterons votre demande dans les plus brefs délais.</p>
+            
+            <!-- Bouton Fermer -->
+            <button onclick="fermerFenetre()" class="btn-primary" style="margin-top: 25px;">Fermer</button>
+        </div>
+
+        <button onclick="fermerFenetre()">Fermer</button>
+
+        <script>
+            function fermerFenetre() {
+                alert("Veuillez fermer cet onglet manuellement.");
+            }
+        </script>
+
+    </body>
+</html>
+
